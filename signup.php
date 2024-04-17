@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+<div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-md-6">
                 <div class="card">
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <h4 class="text-center">Sign Up</h4>
                             <div class="form-group">
                                 <label for="username">Username:</label>
-                                <input type="text" id="username" name="username" class="form-control" required autocomplete="on">
+                                <input type="text" id="username" name="username" class="form-control" required pattern="^[a-zA-Z0-9_]{5,20}$" title="Username must be 5-20 characters long and can contain letters, numbers, and underscores only">
                             </div>
                             <div class="form-group">
                                 <label for="full_name">Full Name:</label>
@@ -76,48 +76,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <input type="email" id="email" name="email" class="form-control" required pattern="^[A-Z0-9a-z_\.]{2,}@[a-zA-z]{5,}\.[a-zA-z]{3,}$" title="Email do not match the format,Give correct format">
                             </div>
                             <div class="form-group">
                                 <label for="mobile">Mobile:</label>
-                                <input type="number" id="mobile" name="mobile" class="form-control">
+                                <input type="tel" id="mobile" name="mobile" class="form-control" pattern="[0-9]{10}" title="Mobile number must be 10 digits">
                             </div>
                             <div class="form-group">
                                 <label for="aadhar">Aadhar:</label>
-                                <input type="number" id="aadhar" name="aadhar" class="form-control">
+                                <input type="text" id="aadhar" name="aadhar" class="form-control" pattern="[0-9]{12}" title="Aadhar number must be 12 digits">
                             </div>
                             <div class="form-group">
                                 <label for="dob">Date of Birth:</label>
-                                <input type="date" id="dob" name="dob" class="form-control">
+                                <input type="date" id="dob" name="dob" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="gender">Gender:</label>
                                 <div class="form-check">
-                                    <input type="radio" id="male" name="gender" value="male" class="form-check-input">
+                                    <input type="radio" id="male" name="gender" value="male" class="form-check-input" required>
                                     <label for="male" class="form-check-label">Male</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" id="female" name="gender" value="female" class="form-check-input">
+                                    <input type="radio" id="female" name="gender" value="female" class="form-check-input" required>
                                     <label for="female" class="form-check-label">Female</label>
                                 </div>
                                 <div class="form-check">
-                                    <input type="radio" id="other" name="gender" value="other" class="form-check-input">
+                                    <input type="radio" id="other" name="gender" value="other" class="form-check-input" required>
                                     <label for="other" class="form-check-label">Other</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password">Password:</label>
-                                <input type="password" id="password" name="password" class="form-control" required>
+                                <input type="password" id="password" name="password" class="form-control" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" title="Password must be at least 8 characters long and contain at least one number, one uppercase and one lowercase letter">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-                            </div>
-                            <div class="form-group text-danger">
-                                <?php
-                                if (!empty($error)) {
-                                    echo $error;
-                                }
-                                ?>
                             </div>
                         </form>
                     </div>
@@ -128,6 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </div>
+
 
     <!-- Bootstrap JS and jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

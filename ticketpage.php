@@ -103,9 +103,9 @@ if ($mysqli->connect_error) {
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" >
     <div class="form-group">
 
-
-  <select class="form-control" id="Class"
-            style="width: 10%; height: 5%; left: 12%; top: 30%; position: absolute; background: white;"
+    <label for="class" style="width: 10%; height: 5%; left:2%; top: 30%; position: absolute; background: white;"> SELECT CLASS:</label>
+  <select class="form-control" id="Class" name="class"
+            style="width: 10%; height: 5%; left: 10%; top: 30%; position: absolute; background: white;"
             name="Class"
             >
             <?php
@@ -129,6 +129,7 @@ if ($mysqli->connect_error) {
             <style>
       select:invalid { color: gray; }
   </style>
+        <label style="width: 10%; height: 5%; left: 22%; top: 30%; position: absolute; background: white;">SELECT SEAT TYPE:</label>
         <select class='form-control'
             style="width: 10%; height: 5%; left: 32%; top: 30%; position: absolute; background: white;"
             name="Coach"
@@ -250,6 +251,12 @@ if ($mysqli->connect_error) {
         function createInputRow(count) {
             const inputRow = document.createElement("div");
             inputRow.className = "form-group row";
+            inputRow.style.position = "relative";  // Set position to "relative" for positioning
+
+            inputRow.style.padding = "10px";
+            inputRow.style.border = "1px solid #ccc";
+            inputRow.style.top = "250px"; // Adjust the value as needed
+            inputRow.style.left = "0";
 
             const labelCol = document.createElement("div");
             labelCol.className = "col-sm-2";

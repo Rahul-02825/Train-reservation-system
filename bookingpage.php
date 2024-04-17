@@ -111,7 +111,7 @@ $flag = 0;
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <div class="form-row">
                         <div class="col-md-4 form-group">
-                            <label for="source" class="text-light">FROM:</label>
+                            <label for="source" >FROM:</label>
                             <select class="form-control" name="source" id="source">
                                 <?php
                                 $sql = "SELECT station_id, station_name FROM Stations";
@@ -128,7 +128,7 @@ $flag = 0;
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label for="destination" class="text-light">TO:</label>
+                            <label for="destination" >TO:</label>
                             <select class="form-control" name="destination" id="destination">
                                 <?php
                                 $sql = "SELECT station_id, station_name FROM Stations";
@@ -145,11 +145,13 @@ $flag = 0;
                             </select>
                         </div>
                         <div class="col-md-4 form-group">
-                            <label for="date" class="text-light">DATE:</label>
+                            <label for="date" >DATE:</label>
                             <input type="date" class="form-control" name="date" id="date" min="<?php echo $currentDateString; ?>" max="<?php echo $maxDateString; ?>">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-submit">SUBMIT</button>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-submit" style="width: 50%;">SUBMIT</button>
+                    </div>
                 </form>
             </div>
         </div>
